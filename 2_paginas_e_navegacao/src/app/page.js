@@ -10,7 +10,9 @@ export default function Home() {
 
         <Link href='/exemplo?parametro=valor'>Página com parametro</Link>
 
-        <Link href='/categoria/roupas'>Ir para a categoria de Roupas</Link>
+        <Link href='/produtos/categorias/roupas'>Ir para a categoria de Roupas</Link>
+
+        <Link href='/dashboard'>Ir para Dashboard</Link>
       </main>
   );
 }

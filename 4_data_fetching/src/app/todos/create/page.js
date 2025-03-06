@@ -1,23 +1,6 @@
-import { db } from "@/db"
-import { redirect } from "next/navigation"
+import {addTodo} from "@/actions"
 
 const TodoPage = () => {
-
-  const addTodo = async (formData) => {
-    "use server"
-    const titulo = formData.get("titulo")
-    const descricao = formData.get("descricao")
-
-    await db.todo.create({
-      //validações
-      data: {
-        titulo,
-        descricao
-      },
-    });
-    
-    redirect("/")
-  };
 
   return (
     <div className='max-w-md mx-auto mt-10'>

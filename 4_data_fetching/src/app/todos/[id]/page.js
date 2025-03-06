@@ -5,6 +5,8 @@ import { notFound } from 'next/navigation';
 
 const TodoShow = async ({ params }) => {
 
+  await new Promise((a) => setTimeout(a, 2000)); //simulando tempo de espera até que a requisição seja concluida
+
    const id = Number(params.id);
 
    const todo = await db.todo.findFirst({

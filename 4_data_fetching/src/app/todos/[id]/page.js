@@ -1,7 +1,5 @@
-import React from 'react'
-import { db } from "@/db"
-import { redirect } from 'next/dist/server/api-utils';
 import { notFound } from 'next/navigation';
+import { buscarTodoPeloId } from '@/actions';
 
 const TodoShow = async ({ params }) => {
 
@@ -9,11 +7,7 @@ const TodoShow = async ({ params }) => {
 
    const id = Number(params.id);
 
-   const todo = await db.todo.findFirst({
-      where: {
-         id: id
-      }
-   });
+   const todo = await buscarTodoPeloId(id);
 
    if (!todo) return notFound(); //diz ao next para que ele redirecione para a page not found 404 mais próxima
 

@@ -10,7 +10,7 @@ const TodoForm = ({ todo }) => {
       <form action={action} method='post' className="flex flex-col gap-4 p-4 bg-white shadow-lg rounded-lg">
 
          {formState.errors ? (
-            <div className="bg-red-500 text-white py-2 px-4 rounded">
+            <div className="bg-red-500 text-white py-2 px-4 my-4 rounded">
                {formState.errors}
             </div>
          ) : ""}

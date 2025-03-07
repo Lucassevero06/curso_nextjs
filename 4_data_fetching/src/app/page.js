@@ -1,7 +1,10 @@
 import Link from "next/link";
 import Button from "@/components/Button";
 import {deleteTodo} from "@/actions";
-import {pegarTodos} from "@/actions"
+import {pegarTodos} from "@/actions";
+
+// força o next em ambiente de produção (npm run build && npm run start) para recarregar os dados
+// export const dynamic = "force-dynamic" 
 
 export default async function Home() {
 

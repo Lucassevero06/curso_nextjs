@@ -30,6 +30,8 @@ export async function addTodo (formData) {
        descricao
      },
    });
+
+   revalidatePath("/")
    
    redirect("/")
 };
@@ -67,6 +69,8 @@ export const updateTodo = async (formState, formData) => {
             descricao
          }
       });
+
+      revalidatePath("/")
    
       redirect("/")
    } catch (error) {
@@ -74,4 +78,29 @@ export const updateTodo = async (formState, formData) => {
          errors: error.message
       }
    }
+}
+
+export async function toggleTodoStatus(formData) {
+   const todoId = Number(formData.get("id"))
+
+   const todo = await db.todo.findFirst({
+      where: {id: todoId}
+   })
+
+   if (!todo) {
+      throw new Error("Tarefa nao encontrada")
+   }
+
+   const novoStatus = todo.status === "pendente" ? "concluida" : "pendente"
+
+   await db.todo.update({
+      where: {id: todoId},
+      data: {
+         status: novoStatus
+      }
+   })
+
+   revalidatePath("/")
+
+   redirect("/")
 }

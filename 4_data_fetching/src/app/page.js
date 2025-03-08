@@ -18,7 +18,7 @@ export default async function Home() {
         {todos.map((todo) => (
           <div className="p-4 bg-gray-100 rounded-lg shadow" key={todo.id}>
             <div className="flex justify-between items-start">
-                <div className="">
+                <div>
                   <h2 className="text-xl font-semibold">Titulo: {todo.titulo}</h2>
                   <p>Descrição: {todo.descricao}</p>
                 </div>
